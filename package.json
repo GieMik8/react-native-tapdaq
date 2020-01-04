@@ -1,0 +1,50 @@
+{
+  "name": "react-native-tapdaq",
+  "version": "1.0.0",
+  "description": "Tapdaq bridge in React Native",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch",
+    "format": "prettier --write \"lib/src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GieMik8/react-native-tapdaq.git"
+  },
+  "keywords": [
+    "tapdaq",
+    "react",
+    "react-native",
+    "advertisements"
+  ],
+  "author": {
+    "name": "GieMik8",
+    "email": "giemik8@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GieMik8/react-native-tapdaq/issues"
+  },
+  "homepage": "https://github.com/GieMik8/react-native-tapdaq#readme",
+  "peerDependencies": {
+    "react": "^16.8.1",
+    "react-native": ">=0.59.0-rc.0 <1.0.x"
+  },
+  "devDependencies": {
+    "react": "^16.8.3",
+    "react-native": "^0.59.10",
+    "prettier": "^1.19.1",
+    "tslint": "^5.20.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.1.0",
+    "typescript": "^3.7.4"
+  },
+  "files": [
+    "dist/**/*",
+    "android/**/*",
+    "ios/**/*",
+    "react-native-tapdaq.podspec"
+  ]
+}
