@@ -1,13 +1,17 @@
 package com.rn.tapdaq;
 
+import android.util.Log;
+
+import com.facebook.react.bridge.Promise;
 import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-import com.facebook.react.bridge.Callback;
+import com.tapdaq.sdk.Tapdaq;
 
 public class RNTapdaqModule extends ReactContextBaseJavaModule {
 
     private final ReactApplicationContext reactContext;
+    private String TAG = this.getName();
 
     public RNTapdaqModule(ReactApplicationContext reactContext) {
         super(reactContext);
@@ -20,8 +24,14 @@ public class RNTapdaqModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void sampleMethod(String stringArgument, int numberArgument, Callback callback) {
-        // TODO: Implement some actually useful functionality
-        callback.invoke("Received numberArgument: " + numberArgument + " stringArgument: " + stringArgument);
+    public void initialise(String applicationId, String clientKey, Promise promise) {
+        Log.d(TAG, String.format("Initializing Tapdaq: applicationdId - %s, clientKey - %s", applicationId, clientKey));
+        new RNTapdaqInitialiser(getCurrentActivity(), applicationId, clientKey, promise);
     }
+
+    @ReactMethod
+    public void startTestActivity() {
+        Tapdaq.getInstance().startTestActivity(getCurrentActivity());
+    }
+
 }

@@ -68,11 +68,13 @@ repositories {
     }
     google()
     jcenter()
+    maven { url "http://android-sdk.tapdaq.com" }
 }
 
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.4.1'
 }
 
 def configureReactNativePom(def pom) {

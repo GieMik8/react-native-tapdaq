@@ -1,3 +1,17 @@
-import settings from './settings'
+import { NativeModules } from 'react-native'
 
-export default (): void => console.log(settings.helloMsg)
+class RNTapdaq {
+  get nativeModule() {
+    return NativeModules.RNTapdaq
+  }
+
+  public initialise(applicationId: string, clientKey: string): Promise<boolean> {
+    return this.nativeModule.initialise(applicationId, clientKey)
+  }
+
+  public startTestActivity(): void {
+    this.nativeModule.startTestActivity()
+  }
+}
+
+export default new RNTapdaq()

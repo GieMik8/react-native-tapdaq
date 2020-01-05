@@ -4,10 +4,11 @@
   "description": "Tapdaq bridge in React Native",
   "main": "dist/index.js",
   "scripts": {
-    "build": "tsc",
+    "build:tsc": "tsc",
     "watch": "tsc --watch",
-    "format": "prettier --write \"lib/src/**/*.ts\"",
-    "lint": "tslint -p tsconfig.json"
+    "format": "prettier --write \"src/**/*.ts\"",
+    "lint": "tslint -p tsconfig.json",
+    "build": "npm run lint && npm run format && npm run build:tsc && npm pack"
   },
   "repository": {
     "type": "git",
@@ -33,9 +34,11 @@
     "react-native": ">=0.59.0-rc.0 <1.0.x"
   },
   "devDependencies": {
+    "@types/react": "^16.9.17",
+    "@types/react-native": "^0.60.27",
+    "prettier": "^1.19.1",
     "react": "^16.8.3",
     "react-native": "^0.59.10",
-    "prettier": "^1.19.1",
     "tslint": "^5.20.1",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.1.0",
