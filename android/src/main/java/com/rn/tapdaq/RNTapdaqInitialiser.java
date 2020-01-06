@@ -1,6 +1,7 @@
 package com.rn.tapdaq;
 
 import android.app.Activity;
+import android.util.Log;
 
 import com.facebook.react.bridge.Promise;
 import com.tapdaq.sdk.Tapdaq;
@@ -16,7 +17,8 @@ public class RNTapdaqInitialiser {
         Tapdaq.getInstance().initialize(activity, applicationId, clientKey, null, new TapdaqInitListener());
     }
 
-    RNTapdaqInitialiser(Activity activity, String applicationId, String clientKey, TapdaqConfig config, Promise promise) {
+    RNTapdaqInitialiser(Activity activity, String applicationId, String clientKey, TapdaqConfig config,
+            Promise promise) {
         this.promise = promise;
         Tapdaq.getInstance().initialize(activity, applicationId, clientKey, config, new TapdaqInitListener());
     }

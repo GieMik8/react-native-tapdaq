@@ -46,7 +46,11 @@
   },
   "files": [
     "dist/**/*",
-    "android/**/*",
+    "android/src",
+    "android/gradle",
+    "android/build.gradle",
+    "android/gradlew",
+    "android/gradlew.bat",
     "ios/RNTapdaq.xcodeproj",
     "ios/RNTapdaq.xcworkspace",
     "ios/RNTapdaq.h",
