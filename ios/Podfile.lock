@@ -1,0 +1,18 @@
+PODS:
+  - Tapdaq (7.4.0):
+    - Tapdaq/SDK (= 7.4.0)
+  - Tapdaq/SDK (7.4.0)
+
+DEPENDENCIES:
+  - Tapdaq (= 7.4.0)
+
+SPEC REPOS:
+  https://github.com/tapdaq/cocoapods-specs.git:
+    - Tapdaq
+
+SPEC CHECKSUMS:
+  Tapdaq: afe542924f9d2311b5d4f66b7a63ce1d462d4a65
+
+PODFILE CHECKSUM: 15804c6953992465f54bf14acb02b519b3c845e7
+
+COCOAPODS: 1.8.4

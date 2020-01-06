@@ -47,7 +47,10 @@
   "files": [
     "dist/**/*",
     "android/**/*",
-    "ios/**/*",
+    "ios/RNTapdaq.xcodeproj",
+    "ios/RNTapdaq.xcworkspace",
+    "ios/RNTapdaq.h",
+    "ios/RNTapdaq.m",
     "react-native-tapdaq.podspec"
   ]
 }

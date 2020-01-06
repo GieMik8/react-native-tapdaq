@@ -2,6 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "commonjs",
+    "lib": ["es6"],
     "jsx": "react-native",
     "declaration": true,
     "outDir": "dist",
@@ -9,6 +10,7 @@
     "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
     "skipLibCheck": true,
+    "moduleResolution": "node",
     "types": ["react", "react-native"]
   },
   "include": ["src"],
