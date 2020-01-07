@@ -74,8 +74,8 @@ repositories {
 dependencies {
     //noinspection GradleDynamicVersion
     implementation 'com.facebook.react:react-native:+'  // From node_modules
-    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.3.2'
-    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.3.2'
+    implementation 'com.tapdaq.sdk:Tapdaq-BaseSDK:7.4.1'
+    implementation 'com.tapdaq.sdk:TapdaqAppLovinAdapter:7.4.1'
 }
 
 def configureReactNativePom(def pom) {

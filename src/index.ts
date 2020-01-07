@@ -25,6 +25,22 @@ class RNTapdaq {
   public startTestActivity(): void {
     this.nativeModule.startTestActivity()
   }
+
+  public setConsentGiven(value: boolean) {
+    this.nativeModule.setConsentGiven(value)
+  }
+
+  public setIsAgeRestrictedUser(value: boolean) {
+    this.nativeModule.setIsAgeRestrictedUser(value)
+  }
+
+  public setUserSubjectToGDPR(value: boolean) {
+    this.nativeModule.setUserSubjectToGDPR(value)
+  }
+
+  public setUserId(id: string) {
+    this.nativeModule.setUserId(id)
+  }
 }
 
 export default new RNTapdaq()

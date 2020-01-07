@@ -70,4 +70,24 @@ public class RNTapdaqModule extends ReactContextBaseJavaModule {
         Tapdaq.getInstance().startTestActivity(getCurrentActivity());
     }
 
+    @ReactMethod
+    public void setConsentGiven(Boolean value) {
+        Tapdaq.getInstance().setContentGiven(getCurrentActivity(), value);
+    }
+
+    @ReactMethod
+    public void setIsAgeRestrictedUser(Boolean value) {
+        Tapdaq.getInstance().setIsAgeRestrictedUser(getCurrentActivity(), value);
+    }
+
+    @ReactMethod
+    public void setUserSubjectToGDPR(Boolean value) {
+        Tapdaq.getInstance().setUserSubjectToGDPR(getCurrentActivity(), value ? STATUS.TRUE : STATUS.FALSE);
+    }
+
+    @ReactMethod
+    public void setUserId(String userId) {
+        Tapdaq.getInstance().setUserId(getCurrentActivity(), userId);
+    }
+
 }
