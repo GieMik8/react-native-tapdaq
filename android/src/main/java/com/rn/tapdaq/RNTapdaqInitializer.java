@@ -9,16 +9,16 @@ import com.tapdaq.sdk.TapdaqConfig;
 import com.tapdaq.sdk.common.TMAdError;
 import com.tapdaq.sdk.listeners.TMInitListener;
 
-public class RNTapdaqInitialiser {
+public class RNTapdaqInitializer {
     private Promise promise;
 
-    RNTapdaqInitialiser(Activity activity, String applicationId, String clientKey, Promise promise) {
+    RNTapdaqInitializer(Activity activity, String applicationId, String clientKey, Promise promise) {
         this.promise = promise;
         Tapdaq.getInstance().initialize(activity, applicationId, clientKey, null, new TapdaqInitListener());
     }
 
-    RNTapdaqInitialiser(Activity activity, String applicationId, String clientKey, TapdaqConfig config,
-            Promise promise) {
+    RNTapdaqInitializer(Activity activity, String applicationId, String clientKey, TapdaqConfig config,
+                        Promise promise) {
         this.promise = promise;
         Tapdaq.getInstance().initialize(activity, applicationId, clientKey, config, new TapdaqInitListener());
     }

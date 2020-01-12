@@ -1,4 +1,6 @@
-import { NativeModules } from 'react-native'
+import { EmitterSubscription, NativeEventEmitter, NativeModules } from 'react-native'
+
+const tapdaqEventEmitter = new NativeEventEmitter(NativeModules.RNTapdaq)
 
 export interface TapdaqConfig {
   userSubjectToGDPR?: boolean
@@ -11,35 +13,63 @@ class RNTapdaq {
     return NativeModules.RNTapdaq
   }
 
-  public initialise(applicationId: string, clientKey: string, config?: TapdaqConfig): Promise<boolean> {
+  public initialize = (applicationId: string, clientKey: string, config?: TapdaqConfig): Promise<boolean> => {
     if (config) {
-      return this.nativeModule.initialiseWithConfig(applicationId, clientKey, config)
+      return this.nativeModule.initializeWithConfig(applicationId, clientKey, config)
     }
-    return this.nativeModule.initialise(applicationId, clientKey)
+    return this.nativeModule.initialize(applicationId, clientKey)
   }
 
-  public isInitialised(): Promise<boolean> {
-    return this.nativeModule.isInitialised()
+  public isInitialized = (): Promise<boolean> => {
+    return this.nativeModule.isInitialized()
   }
 
-  public startTestActivity(): void {
-    this.nativeModule.startTestActivity()
+  public openTestControls = () => {
+    this.nativeModule.openTestControls()
   }
 
-  public setConsentGiven(value: boolean) {
+  public setConsentGiven = (value: boolean) => {
     this.nativeModule.setConsentGiven(value)
   }
 
-  public setIsAgeRestrictedUser(value: boolean) {
+  public setIsAgeRestrictedUser = (value: boolean) => {
     this.nativeModule.setIsAgeRestrictedUser(value)
   }
 
-  public setUserSubjectToGDPR(value: boolean) {
+  public setUserSubjectToGDPR = (value: boolean) => {
     this.nativeModule.setUserSubjectToGDPR(value)
   }
 
-  public setUserId(id: string) {
+  public setUserId = (id: string) => {
     this.nativeModule.setUserId(id)
+  }
+
+  public isInterstitialReady = (placementTag: string): Promise<boolean> => {
+    return this.nativeModule.isInterstitialReady(placementTag)
+  }
+
+  public loadInterstitial = (placementTag: string): Promise<boolean> => {
+    return this.nativeModule.loadInterstitial(placementTag)
+  }
+
+  public showInterstitial = (placementTag: string): Promise<boolean> => {
+    return this.nativeModule.showInterstitial(placementTag)
+  }
+
+  public isRewardedVideoReady = (placementTag: string): Promise<boolean> => {
+    return this.nativeModule.isRewardedVideoReady(placementTag)
+  }
+
+  public loadRewardedVideo = (placementTag: string): Promise<boolean> => {
+    return this.nativeModule.loadRewardedVideo(placementTag)
+  }
+
+  public showRewardedVideo = (placementTag: string): Promise<boolean> => {
+    return this.nativeModule.showRewardedVideo(placementTag)
+  }
+
+  public addListerner = (callback: (message: string) => any): EmitterSubscription => {
+    return tapdaqEventEmitter.addListener('tapdaq', callback)
   }
 }
 

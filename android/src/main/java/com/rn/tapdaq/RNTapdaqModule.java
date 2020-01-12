@@ -32,12 +32,12 @@ public class RNTapdaqModule extends ReactContextBaseJavaModule {
     }
 
     @ReactMethod
-    public void initialise(String applicationId, String clientKey, Promise promise) {
-        new RNTapdaqInitialiser(getCurrentActivity(), applicationId, clientKey, promise);
+    public void initialize(String applicationId, String clientKey, Promise promise) {
+        new RNTapdaqInitializer(getCurrentActivity(), applicationId, clientKey, promise);
     }
 
     @ReactMethod
-    public void initialiseWithConfig(String applicationId, String clientKey, ReadableMap config, Promise promise) {
+    public void initializeWithConfig(String applicationId, String clientKey, ReadableMap config, Promise promise) {
         TapdaqConfig tapdaqConfig = new TapdaqConfig();
         ReadableMapKeySetIterator iterator = config.keySetIterator();
         while (iterator.hasNextKey()) {
@@ -54,19 +54,19 @@ public class RNTapdaqModule extends ReactContextBaseJavaModule {
                     tapdaqConfig.setUserSubjectToGDPR(value ? STATUS.TRUE : STATUS.FALSE);
                     break;
                 default:
-                    Log.d(TAG, String.format("Unknown config key (%s) passed to initialise()", key));
+                    Log.d(TAG, String.format("Unknown config key (%s) passed to initialize()", key));
             }
         }
-        new RNTapdaqInitialiser(getCurrentActivity(), applicationId, clientKey, tapdaqConfig, promise);
+        new RNTapdaqInitializer(getCurrentActivity(), applicationId, clientKey, tapdaqConfig, promise);
     }
 
     @ReactMethod
-    public void isInitialised(Promise promise) {
+    public void isInitialized(Promise promise) {
         promise.resolve(Tapdaq.getInstance().IsInitialised());
     }
 
     @ReactMethod
-    public void startTestActivity() {
+    public void openTestControls() {
         Tapdaq.getInstance().startTestActivity(getCurrentActivity());
     }
 

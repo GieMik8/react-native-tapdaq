@@ -55,6 +55,10 @@
     "ios/RNTapdaq.xcworkspace",
     "ios/RNTapdaq.h",
     "ios/RNTapdaq.m",
+    "ios/RNPromise.h",
+    "ios/RNPromise.m",
+    "ios/RNTapdaqSharedController.h",
+    "ios/RNTapdaqSharedController.m",
     "react-native-tapdaq.podspec"
   ]
 }

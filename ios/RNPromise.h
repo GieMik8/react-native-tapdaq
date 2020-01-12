@@ -1,8 +1,8 @@
 //
 //  RNPromise.h
-//  LympoAppReact
+//  RNTapdaq
 //
-//  Created by GieMik8 on 2020-01-07.
+//  Created by Giedrius Mikoliunas on 2020-01-12.
 //  Copyright © 2020 Facebook. All rights reserved.
 //
 
