@@ -10,6 +10,8 @@
 		B3E7B58A1CC2AC0600A0062D /* RNTapdaq.m in Sources */ = {isa = PBXBuildFile; fileRef = B3E7B5891CC2AC0600A0062D /* RNTapdaq.m */; };
 		C21F3C5423C0E8180029FB4E /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C21F3C3523C0E7EA0029FB4E /* libReact.a */; };
 		C261168323CB230900C2A0E4 /* RNTapdaqSharedController.m in Sources */ = {isa = PBXBuildFile; fileRef = C261168223CB230900C2A0E4 /* RNTapdaqSharedController.m */; };
+		C26116BA23CBBC1A00C2A0E4 /* RNTapdaqMediatedNativeAdView.m in Sources */ = {isa = PBXBuildFile; fileRef = C26116B923CBBC1A00C2A0E4 /* RNTapdaqMediatedNativeAdView.m */; };
+		C26116CD23CBBC3200C2A0E4 /* RNTapdaqMediatedNativeAdManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C26116CC23CBBC3200C2A0E4 /* RNTapdaqMediatedNativeAdManager.m */; };
 		C2A9C63223C501120008D8D7 /* RNPromise.m in Sources */ = {isa = PBXBuildFile; fileRef = C2A9C63123C501120008D8D7 /* RNPromise.m */; };
 		CF375867EDBE3CD6B1D632F2 /* Pods_RNTapdaq.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6E10E11A43A1950C3B3CD224 /* Pods_RNTapdaq.framework */; };
 /* End PBXBuildFile section */
@@ -151,6 +153,10 @@
 		C21F3C2123C0E7EA0029FB4E /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
 		C261168123CB230900C2A0E4 /* RNTapdaqSharedController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTapdaqSharedController.h; sourceTree = "<group>"; };
 		C261168223CB230900C2A0E4 /* RNTapdaqSharedController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTapdaqSharedController.m; sourceTree = "<group>"; };
+		C26116B823CBBC1A00C2A0E4 /* RNTapdaqMediatedNativeAdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTapdaqMediatedNativeAdView.h; sourceTree = "<group>"; };
+		C26116B923CBBC1A00C2A0E4 /* RNTapdaqMediatedNativeAdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTapdaqMediatedNativeAdView.m; sourceTree = "<group>"; };
+		C26116CB23CBBC3200C2A0E4 /* RNTapdaqMediatedNativeAdManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNTapdaqMediatedNativeAdManager.h; sourceTree = "<group>"; };
+		C26116CC23CBBC3200C2A0E4 /* RNTapdaqMediatedNativeAdManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNTapdaqMediatedNativeAdManager.m; sourceTree = "<group>"; };
 		C2A9C63023C501120008D8D7 /* RNPromise.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RNPromise.h; sourceTree = "<group>"; };
 		C2A9C63123C501120008D8D7 /* RNPromise.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RNPromise.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +194,10 @@
 		58B511D21A9E6C8500147676 = {
 			isa = PBXGroup;
 			children = (
+				C26116CB23CBBC3200C2A0E4 /* RNTapdaqMediatedNativeAdManager.h */,
+				C26116CC23CBBC3200C2A0E4 /* RNTapdaqMediatedNativeAdManager.m */,
+				C26116B823CBBC1A00C2A0E4 /* RNTapdaqMediatedNativeAdView.h */,
+				C26116B923CBBC1A00C2A0E4 /* RNTapdaqMediatedNativeAdView.m */,
 				C261168123CB230900C2A0E4 /* RNTapdaqSharedController.h */,
 				C261168223CB230900C2A0E4 /* RNTapdaqSharedController.m */,
 				C2A9C63023C501120008D8D7 /* RNPromise.h */,
@@ -436,7 +446,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C26116BA23CBBC1A00C2A0E4 /* RNTapdaqMediatedNativeAdView.m in Sources */,
 				B3E7B58A1CC2AC0600A0062D /* RNTapdaq.m in Sources */,
+				C26116CD23CBBC3200C2A0E4 /* RNTapdaqMediatedNativeAdManager.m in Sources */,
 				C261168323CB230900C2A0E4 /* RNTapdaqSharedController.m in Sources */,
 				C2A9C63223C501120008D8D7 /* RNPromise.m in Sources */,
 			);

@@ -59,6 +59,10 @@
     "ios/RNPromise.m",
     "ios/RNTapdaqSharedController.h",
     "ios/RNTapdaqSharedController.m",
+    "ios/RNTapdaqMediatedNativeAdManager.h",
+    "ios/RNTapdaqMediatedNativeAdManager.m",
+    "ios/RNTapdaqMediatedNativeAdView.h",
+    "ios/RNTapdaqMediatedNativeAdView.m",
     "react-native-tapdaq.podspec"
   ]
 }
