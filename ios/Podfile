@@ -12,5 +12,6 @@ target 'RNTapdaq' do
 
   # Pods for RNTapdaq
   pod "Tapdaq", "7.4.0"
+  pod 'Tapdaq/AppLovin'
 
 end

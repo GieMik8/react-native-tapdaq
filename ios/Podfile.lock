@@ -1,18 +1,28 @@
 PODS:
+  - AppLovinSDK (6.9.5)
   - Tapdaq (7.4.0):
     - Tapdaq/SDK (= 7.4.0)
+  - Tapdaq/AppLovin (7.4.0):
+    - AppLovinSDK (= 6.9.5)
+    - Tapdaq/AppLovinAdapter
+  - Tapdaq/AppLovinAdapter (7.4.0):
+    - Tapdaq/SDK
   - Tapdaq/SDK (7.4.0)
 
 DEPENDENCIES:
   - Tapdaq (= 7.4.0)
+  - Tapdaq/AppLovin
 
 SPEC REPOS:
+  https://github.com/CocoaPods/Specs.git:
+    - AppLovinSDK
   https://github.com/tapdaq/cocoapods-specs.git:
     - Tapdaq
 
 SPEC CHECKSUMS:
+  AppLovinSDK: 15268696b789c0954520ca95022fe2453bc41291
   Tapdaq: afe542924f9d2311b5d4f66b7a63ce1d462d4a65
 
-PODFILE CHECKSUM: 15804c6953992465f54bf14acb02b519b3c845e7
+PODFILE CHECKSUM: b43c032d4140b1dcb87694a180a1e2f657a6b6a3
 
 COCOAPODS: 1.8.4
