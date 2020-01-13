@@ -51,7 +51,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)loadRewardedVideo:(NSString *)placement withPromise:(RNPromise *)promise;
 
-- (void)showRewardedVideo:(NSString *)placement hashedUserId:(NSString *)hashedUserId promise:(RNPromise *)promise;
+- (void)showRewardedVideo:(NSString *)placement promise:(RNPromise *)promise;
 
 - (void)loadNativeAd:(NSString *)placement;
 

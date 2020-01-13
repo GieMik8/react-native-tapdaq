@@ -114,12 +114,11 @@ RCT_EXPORT_METHOD(loadRewardedVideo:(NSString *)placement
     [[RNTapdaqSharedController sharedController] loadRewardedVideo:placement withPromise:promise];
 }
 
-RCT_EXPORT_METHOD(showRewardedVideoWithPayout:(NSString *)placement
-                  hashedUserId:(NSString *)hashedUserId
+RCT_EXPORT_METHOD(showRewardedVideo:(NSString *)placement
                   resolver:(RCTPromiseResolveBlock)resolve
                   rejecter:(RCTPromiseRejectBlock)reject) {
     RNPromise *promise = [[RNPromise alloc] initWithResolver:resolve andRejector:reject];
-    [[RNTapdaqSharedController sharedController] showRewardedVideo:placement hashedUserId:hashedUserId promise:promise];
+    [[RNTapdaqSharedController sharedController] showRewardedVideo:placement promise:promise];
 }
 
 + (BOOL)requiresMainQueueSetup {

@@ -1,3 +1,4 @@
+import React from 'react'
 import { EmitterSubscription, NativeEventEmitter, NativeModules } from 'react-native'
 
 const tapdaqEventEmitter = new NativeEventEmitter(NativeModules.RNTapdaq)
@@ -6,6 +7,15 @@ export interface TapdaqConfig {
   userSubjectToGDPR?: boolean
   consentGiven?: boolean
   isAgeRestrictedUser?: boolean
+}
+
+export interface TapdaqReward {
+  eventId: string
+  name: string
+  tag: string
+  value: number
+  customJson: string
+  isValid: boolean
 }
 
 class RNTapdaq {
@@ -70,6 +80,10 @@ class RNTapdaq {
 
   public addListerner = (callback: (message: string) => any): EmitterSubscription => {
     return tapdaqEventEmitter.addListener('tapdaq', callback)
+  }
+
+  public addOnRewardListener = (callback: (info: TapdaqReward) => any): EmitterSubscription => {
+    return tapdaqEventEmitter.addListener('tapdaqReward', callback)
   }
 }
 

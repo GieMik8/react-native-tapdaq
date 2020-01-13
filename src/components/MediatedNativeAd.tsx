@@ -1,8 +1,8 @@
-import React, { useState, ReactElement, useEffect, useRef } from 'react'
+import React, { useState, ReactElement } from 'react'
 import { requireNativeComponent, UIManager, findNodeHandle, ViewStyle, NativeSyntheticEvent } from 'react-native'
 
-const TapdaqNativeAdView = requireNativeComponent('TapdaqNativeAdView')
-const TapdaqNativeAdViewConfig = UIManager.getViewManagerConfig('TapdaqNativeAdView')
+const TapdaqNativeAdView = requireNativeComponent('TapdaqMediatedNativeAdView')
+const TapdaqNativeAdViewConfig = UIManager.getViewManagerConfig('TapdaqMediatedNativeAdView')
 
 interface TapdaqAd {
   placement?: string
@@ -44,7 +44,7 @@ const MediatedNativeAd = (compProps: MediatedNativeAdProps): ReactElement<Mediat
 
   const [ad, setAd] = useState<TapdaqAd>({})
   const [ready, setReady] = useState<boolean>(false)
-  // let ref = React.createRef()
+  let ref = React.createRef()
 
   const finalStyle = { ...styles.root, ...style }
   if (!ready) {
@@ -89,9 +89,9 @@ const MediatedNativeAd = (compProps: MediatedNativeAdProps): ReactElement<Mediat
 
   return (
     <TapdaqNativeAdView
-      // ref={r => {
-      //   ref = r
-      // }}
+      ref={(r: any) => {
+        ref = r
+      }}
       {...other}
       placement={placement}
       style={finalStyle}

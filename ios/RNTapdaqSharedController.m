@@ -106,9 +106,8 @@ static RNTapdaqSharedController *rnTapdaqSharedController = nil;
     [[Tapdaq sharedSession] loadRewardedVideoForPlacementTag:placement delegate:self];
 }
 
-- (void)showRewardedVideo:(NSString *)placement hashedUserId:(NSString *)userId promise:(RNPromise *)promise {
+- (void)showRewardedVideo:(NSString *)placement promise:(RNPromise *)promise {
   _adDisplayPromise = promise;
-    [[Tapdaq sharedSession] setUserId:userId];
     [[Tapdaq sharedSession] showRewardedVideoForPlacementTag:placement];
 }
 
