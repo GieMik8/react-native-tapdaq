@@ -87,6 +87,6 @@ class RNTapdaq {
   }
 }
 
-export { default as MediatedNativeAd } from './components/MediatedNativeAd'
+export { default as MediatedNativeAd } from './components/MediatedNativeAd2'
 
 export default new RNTapdaq()

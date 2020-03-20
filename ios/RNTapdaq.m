@@ -10,7 +10,8 @@
 
 @interface RNTapdaq()
     @property (nonatomic) BOOL hasListeners;
-    @property (nonatomic) NSString *eventName;
+    @property (nonatomic) NSString *logEventName;
+    @property (nonatomic) NSString *logRewardEventName;
     @property (nonatomic) NSString *keyUserSubjectToGDPR;
     @property (nonatomic) NSString *keyConsentGiven;
     @property (nonatomic) NSString *keyIsAgeRestrictedUser;
@@ -23,7 +24,8 @@ RCT_EXPORT_MODULE()
 -(id)init {
     self = [super init];
     if (self) {
-        _eventName = @"tapdaq";
+        _logEventName = @"tapdaq";
+        _logRewardEventName = @"tapdaqReward";
         _hasListeners = NO;
         [[RNTapdaqSharedController sharedController] setDelegate:self];
     }
@@ -73,8 +75,8 @@ RCT_EXPORT_METHOD(setUserSubjectToGDPR:(BOOL)value) {
     [[RNTapdaqSharedController sharedController] setUserSubjectToGDPR:value];
 }
 
-RCT_EXPORT_METHOD(setUserId:(BOOL)value) {
-    [[RNTapdaqSharedController sharedController] setUserSubjectToGDPR:value];
+RCT_EXPORT_METHOD(setUserId:(NSString *)userId) {
+    [[RNTapdaqSharedController sharedController] setUserId:userId];
 }
 
 RCT_EXPORT_METHOD(isInterstitialReady:(NSString *)placement
@@ -171,12 +173,18 @@ RCT_EXPORT_METHOD(showRewardedVideo:(NSString *)placement
 }
 
 - (NSArray<NSString *> *) supportedEvents {
-    return @[_eventName];
+    return @[_logEventName, _logRewardEventName];
 }
 
 - (void)sendEvent:(NSString*)body {
     if (_hasListeners) {
-        [self sendEventWithName:_eventName body:body];
+        [self sendEventWithName:_logEventName body:body];
+    }
+}
+
+- (void)sendRewardEvent:(NSDictionary *)body {
+    if (_hasListeners) {
+        [self sendEventWithName:_logRewardEventName body:body];
     }
 }
 
@@ -186,6 +194,13 @@ RCT_EXPORT_METHOD(showRewardedVideo:(NSString *)placement
 
 - (void)onRedeem:(TDAdRequest * _Nonnull)adRequest reward:(TDReward *)reward {
     [self sendEvent:[NSString stringWithFormat:@"Award|{\"source\": \"tapdaq\", \"eventId\": \"%@\", \"type\": \"%@\", \"name\": \"%@\", \"tag\": \"%@\", \"isValid\": %@, \"value\": %d, \"hashedUserId\": \"%@\"}", reward.eventId, [self stringFromAdType:adRequest.placement.adTypes], reward.name, adRequest.placement.tag, reward.isValid ? @"true" : @"false", reward.value, reward.hashedUserId]];
+    NSMutableDictionary *payload = [[NSMutableDictionary alloc] init];
+    [payload setValue:reward.eventId forKey:@"eventId"];
+    [payload setValue:reward.name forKey:@"name"];
+    [payload setValue:reward.tag forKey:@"tag"];
+    [payload setObject:reward.customJson forKey:@"customJson"];
+    [payload setObject:reward.isValid ? @(YES) : @(NO) forKey:@"isValid"];
+    [self sendRewardEvent:payload];
 }
 
 - (void)onRedeemFailed:(TDAdRequest * _Nonnull)adRequest didFailToValidateReward:(TDReward * _Nonnull)reward {
